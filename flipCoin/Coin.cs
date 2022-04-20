@@ -8,8 +8,8 @@ namespace flipCoin
 {
     public class Coin
     {
-        int Headper = 0;
-        int Tailper = 0;
+        float Headper = 0.0f;
+        float Tailper = 0.0f;
         int Head = 0;
         int Tail = 0;
 
@@ -20,21 +20,22 @@ namespace flipCoin
             for (int i = 0; i < time; i++)
             {
                 Random random = new Random();
-                int toss = random.Next(0, 1);
-                if (toss >0.5)
+                int toss = random.Next(0, 2);
+                if (toss < 0.5)
                 {
                     Head++;
                 }
-                if (toss < 0.5)
+                else
                 {
                     Tail++;
                 }
+                
 
             }
-            Headper = Head / time * 100;
+            Headper = (float)Head * 100 / time;
             Console.WriteLine("total head:" + Head + ",Per of head:" + Headper);
-            Tailper = Tail / time * 100;
-            Console.WriteLine("total tai:" + Tail + ",Per of tail:" + Tailper);
+            Tailper = (float)Tail * 100 / time;
+            Console.WriteLine("total tail:" + Tail + ",Per of tail:" + Tailper);
         }
     }
 }
